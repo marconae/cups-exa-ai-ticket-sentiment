@@ -1,0 +1,31 @@
+```plaintext
+# Python specific
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.env
+*.venv
+env/
+venv/
+build/
+dist/
+*.egg-info/
+.eggs/
+*.log
+
+# PyCharm specific
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# macOS specific
+.DS_Store
+.AppleDouble
+._*
+
+# System specific
+Thumbs.db
+Desktop.ini
+```
