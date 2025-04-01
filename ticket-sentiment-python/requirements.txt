@@ -1,0 +1,5 @@
+transformers>=4.0.0
+torch>=1.7.0     # Required for PyTorch-based models
+sentencepiece    # Required for some tokenizers
+datasets         # Optional: for loading and processing datasets
+accelerate       # Optional: for performance and device handling
