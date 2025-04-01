@@ -8,3 +8,4 @@ The data set in scope in [Customer Support Ticket Dataset](https://www.kaggle.co
 ## Tools
 
 * [Exasol AI Lab](https://github.com/exasol/ai-lab)
+* [cardiffnlp/twitter-roberta-base-sentiment-latest](https://huggingface.co/cardiffnlp/twitter-roberta-base-sentiment-latest) on HuggingFace
