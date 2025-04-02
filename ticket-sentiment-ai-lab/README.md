@@ -8,7 +8,7 @@
 ## Setup environment in Exasol
 
 * Copy `sentiment_generation.ipynb` to `/transformers` and follow the notebook
-* Run the notebook to upload the model and to a test run
+* Run the notebook to upload the model and do a test run
 * Create the table with `ddl-customer-support-tickets.sql`
 * Import the CSV file from Kaggle into the table
 * Use the last two SQL statements within the data pipeline
@@ -28,3 +28,6 @@ SELECT MN_AILAB.TE_SEQUENCE_CLASSIFICATION_SINGLE_TEXT_UDF(
     'I''m having an issue with the Bose Sound Link. Please assist. This problem started occurring after the recent software update. I haven''t made any other changes to the device.'
 )
 ```
+
+## Performance overview
+
