@@ -3,6 +3,13 @@
 alter session set script_languages='R=builtin_r JAVA=builtin_java PYTHON3=builtin_python3 PYTHON3_TE=localzmq+protobuf:///uploads/default/TE/exasol_transformers_extension_container_release?lang=python#/buckets/uploads/default/TE/exasol_transformers_extension_container_release/exaudf/exaudfclient_py3';
 
 -- Exploration
+-- How many tickets overall?
+select count(*)
+  from customer_support_tickets
+;
+-- 8446
+
+-- How many tickets per type?
 select ticket_type
      , count(*)
   from customer_support_tickets
@@ -10,26 +17,15 @@ select ticket_type
 ;
 
 -- Add sentiment
+--create or replace table mn_ailab.customer_support_tickets_sentiment
+--as
 with raw_data as (
     select ticket_id
-         --, customer_name
-         --, customer_email
-         --, customer_age
-         --, customer_gender
          , product_purchased
-         --, date_of_purchase
-         --, ticket_type
-         --, ticket_subject
          , ticket_description
-         --, ticket_status
-         --, resolution
-         --, ticket_priority
-         --, ticket_channel
-         --, first_response_time
-         --, time_to_resolution
          , customer_satisfaction_rating
       from customer_support_tickets
-      limit 100 -- add limit for testing
+      limit 60 -- add limit for testing
 ),
 tickets_cleaned as (
     select ticket_id
@@ -52,6 +48,7 @@ add_sentiment as (
                , ticket_description
            )
       from descriptions_distinct
+     group by iproc() -- distribute the UDF work on the cluster nodes
 ),
 add_rank as (
     select text_data
